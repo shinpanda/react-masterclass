@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 import { createGlobalStyle } from "styled-components";
 import ToDoList from "./components/TodoList";
+=======
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
+import Router from "./Router";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { darkTheme, lightTheme } from "./theme";
+import { useState } from "react";
+>>>>>>> parent of 7bcdc59 (recoil 추가)
 
 //@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
 
@@ -67,11 +75,38 @@ a {
 }
 `;
 
+const ToggleBtn = styled.button`
+  display: inline-block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: ${(props) => props.theme.btnBgColor};
+  color: ${(props) => props.theme.btnColor};
+  top: 10px;
+  right: 10px;
+  border: 0px;
+  box-shadow: 0px 1px 10px 2px #00000061;
+`;
+
 function App() {
+<<<<<<< HEAD
   return (
     <>
       <GlobalStyle />
       <ToDoList />
+=======
+  const [isDark, setIsDark] = useState(false);
+  const toggleDark = () => setIsDark((current) => !current);
+  return (
+    <>
+      <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+        <GlobalStyle />
+        <ToggleBtn onClick={toggleDark}>Mode</ToggleBtn>
+        <Router />
+        <ReactQueryDevtools initialIsOpen={true} />
+      </ThemeProvider>
+>>>>>>> parent of 7bcdc59 (recoil 추가)
     </>
   );
 }
