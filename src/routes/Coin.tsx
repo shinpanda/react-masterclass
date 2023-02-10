@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCoinInfo, fetchCoinTickers } from "../api";
+import Home from "../screens/Home";
 import Chart from "./Chart";
 import Price from "./Price";
 
@@ -171,6 +172,7 @@ function Coin() {
   const loading = infoLoading || tickersLoading;
   const priceMatch = useRouteMatch("/:coinId/price");
   const chartMatch = useRouteMatch("/:coinId/chart");
+
   return (
     <Container>
       <HomeBtn>
